@@ -19,7 +19,51 @@ li {
 .header {
   width: 100%;
   height: 6em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
 }
 .swiper-container {
   min-height: 250px;
+}
+.swiper-img {
+  width: 100%;
+}
+.company-flex {
+  display: flex;
+}
+.company-left,
+.company-right {
+  width: 50%;
+}
+#companyName {
+  font-size: 3em;
+  text-align: center;
+  padding: 1em;
+}
+#companyDesc {
+  font-size: 16px;
+  padding: 15px 1.5em;
+}
+.company-desc-number {
+  font-size: 2em;
+}
+.company-desc-number span {
+  font-size: 0.5em;
+  color: #747474;
+}
+.company-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 2em;
+}
+.company-row > div > div:nth-child(2) {
+  margin-top: 1em;
+}
+.company-desc-text {
+  color: #747474;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 2em;
 }

@@ -1,3 +1,18 @@
 getData({
   "title": "反光材料",
+  "swiperImgList": [
+    "http://www.cnlianxing.com/manage/static/image/componentimgs/banner4.png",
+    "http://www.cnlianxing.com/manage/static/image/16142405090001.png",
+    "http://www.cnlianxing.com/manage/static/image/16142404910001.png",
+    "http://www.cnlianxing.com/manage/static/image/componentimgs/banner4.png",
+  ],
+  "company": {
+    "name": "xxx反光材料有限公司",
+    "desc": "xxx反光材料有限公司成立于2001年，是国内专业从事系列反光材料研发、生产及销售为一体的高新技术企业，引进多条国外最先进的生产流水线，拥有自主知识产权，独自研发出PVC反光材料，属国内首创，填补了我国该领域的空白，公司于2010年3月取得六项实用新型专利证书，2010年9月再次取得一项外观设计专利证书，2010年10月公司通过国家高新技术企业认证。",
+    "year": "2001",
+    "area": "75",
+    "honor": "128",
+    "tech": "200",
+    "slogan": " “xxx产品，安全的标志”致力于打造中国安全事业走向世界的领导品牌。"
+  }
 })

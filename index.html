@@ -1,80 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-    <link rel="stylesheet" href="./swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./index.css" />
-  </head>
-  <body>
-    <div id="header" class="header"></div>
 
-    <!-- 轮播图 -->
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-      </div>
-      <!-- 如果需要分页器 -->
-      <div class="swiper-pagination"></div>
-      <!-- 如果需要导航按钮 -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <link rel="stylesheet" href="./swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+  <div id="header" class="header"></div>
+
+  <!-- 轮播图 -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper" id="swiperList">
     </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <!-- 公司简介 -->
+  <div class="company-flex">
+    <div class="company-left">
+      <div id="companyName"></div>
+      <div id="companyDesc"></div>
+      <div class="company-row">
+        <div>
+          <div class="company-desc-number" id="companyYear"><span>年</span></div>
+          <div>成立于</div>
+        </div>
+        <div>
+          <div class="company-desc-number" id="companyArea"><span>亩</span></div>
+          <div>占地面积</div>
+        </div>
+        <div>
+          <div class="company-desc-number" id="companyHonor"><span>+</span></div>
+          <div>企业荣誉</div>
+        </div>
+        <div>
+          <div class="company-desc-number" id="companyTech"><span>+</span></div>
+          <div>专利技术</div>
+        </div>
+      </div>
+      <div class="company-desc-text" id="companySlogan">
+       
+      </div>
+    </div>
+    <div class="company-right">
+      <img src="http://www.cnlianxing.com/manage/static/image/componentimgs/product.png"
+        style="width: 100%; height: 100%" alt="">
+    </div>
+  </div>
+  </div>
+  </div>
 
 
+  <script type="text/javascript">
+    // 初始化数据
+    function getData(result) {
+      console.log(result);
+      document.title = result.title;
+      const swiperImgList = result.swiperImgList;
+      const swiperContainer = document.getElementById("swiperList");
+      swiperImgList.map(item => {
+        const img = document.createElement("img");
+        img.className = "swiper-slide swiper-img"
+        img.src = item;
+        swiperContainer.appendChild(img);
+      })
 
-    <script type="text/javascript" src="./swiper-bundle.min.js"></script>
-    <!-- 轮播图控制脚本 -->
-    <script>
-      var mySwiper = new Swiper(".swiper-container", {
-        // direction: "vertical", // 垂直切换选项
-        // loop: true, // 循环模式选项
-        autoplay: true,
-        // 如果需要分页器
-        pagination: {
-          el: ".swiper-pagination",
-        },
-        // 如果需要前进后退按钮
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        // 如果需要滚动条
-        scrollbar: {
-          el: ".swiper-scrollbar",
+      const {
+        name,
+        desc,
+        year,
+        area,
+        honor,
+        tech,
+        slogan
+      } = result.company;
+      // 公司名称
+      document.getElementById("companyName").innerText = name;
+      // 公司简介
+      document.getElementById("companyDesc").innerText = desc;
+      // 成立时间
+      document.getElementById("companyYear").innerText = year;
+      // 占地面积
+      document.getElementById("companyArea").innerText = area;
+      // 荣誉数量
+      document.getElementById("companyHonor").innerText = honor;
+      // 专利数量
+      document.getElementById("companyTech").innerText = tech;
+      // 标语
+      document.getElementById("companySlogan").innerText = slogan;
+    }
+  </script>
+  <script type="text/javascript" src="./data/index.json?callback=getData"></script>
+
+  <script type="text/javascript">
+    const scrollHeight = document.body.scrollHeight;
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", function (event) {
+      var scrollTop =
+        document.documentElement.scrollTop ||
+        window.pageYOffset ||
+        document.body.scrollTop;
+      if (scrollTop > 30) {
+        if (header) {
+          header.style.background = "#fff";
         }
-      });
-    </script>
-
-    <script type="text/javascript">
-      function getData(result) {
-        console.log(result);
-        document.title = result.title;
+      } else {
+        header.style.background = "transparent";
       }
-    </script>
-    <script
-      type="text/javascript"
-      src="./data/index.json?callback=getData"
-    ></script>
+    });
+  </script>
+  <script type="text/javascript" src="./swiper-bundle.min.js"></script>
+  <!-- 轮播图控制脚本 -->
+  <script>
+    var mySwiper = new Swiper(".swiper-container", {
+      // direction: "vertical", // 垂直切换选项
+      // loop: true, // 循环模式选项
+      autoplay: true,
+      // 如果需要分页器
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      // 如果需要前进后退按钮
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      // 如果需要滚动条
+      scrollbar: {
+        el: ".swiper-scrollbar",
+      }
+    });
+  </script>
+</body>
 
-    <script type="text/javascript">
-      const scrollHeight = document.body.scrollHeight;
-      const header = document.getElementById("header");
-      window.addEventListener("scroll", function (event) {
-        var scrollTop =
-          document.documentElement.scrollTop ||
-          window.pageYOffset ||
-          document.body.scrollTop;
-        if (scrollTop > 30) {
-          if (header) {
-            header.style.background = "#ccc";
-          }
-        }
-      });
-    </script>
-  </body>
 </html>
