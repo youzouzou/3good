@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="./swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div id="header" class="header"></div>
+
+    <!-- 轮播图 -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+      </div>
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+      <!-- 如果需要导航按钮 -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+
+
+    <script type="text/javascript" src="./swiper-bundle.min.js"></script>
+    <!-- 轮播图控制脚本 -->
+    <script>
+      var mySwiper = new Swiper(".swiper-container", {
+        // direction: "vertical", // 垂直切换选项
+        // loop: true, // 循环模式选项
+        autoplay: true,
+        // 如果需要分页器
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        // 如果需要滚动条
+        scrollbar: {
+          el: ".swiper-scrollbar",
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      function getData(result) {
+        console.log(result);
+        document.title = result.title;
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="./data/index.json?callback=getData"
+    ></script>
+
+    <script type="text/javascript">
+      const scrollHeight = document.body.scrollHeight;
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", function (event) {
+        var scrollTop =
+          document.documentElement.scrollTop ||
+          window.pageYOffset ||
+          document.body.scrollTop;
+        if (scrollTop > 30) {
+          if (header) {
+            header.style.background = "#ccc";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
