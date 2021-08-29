@@ -196,7 +196,7 @@ li {
 .product .product-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .product .product-list .product-item {
   width: 208px;
@@ -227,4 +227,51 @@ li {
   text-align: center;
   line-height: 30px;
   font-size: 14px;
+}
+@media screen and (max-width: 600px) {
+  .company-flex {
+    display: block;
+  }
+  .company-left,
+  .company-right {
+    width: 100%;
+  }
+  .timeline .time-item > div {
+    padding: 20px;
+  }
+  .manage-list {
+    display: block!important;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+    margin-top: 0!important;
+    height: auto!important;
+  }
+  .manage-list .manage-item {
+    height: auto!important;
+    width: 100%!important;
+    text-align: center;
+    margin-left: 0;
+  }
+  .manage-list .manage-item img {
+    display: none;
+  }
+  .manage-list .manage-item:nth-child(1),
+  .manage-list .manage-item:nth-child(2),
+  .manage-list .manage-item:nth-child(3) {
+    background: none!important;
+    color: #333;
+  }
+  .manage-list .manage-item-title {
+    font-size: 22px;
+    margin-top: 0!important;
+  }
+  .manage-list .manage-item-desc {
+    font-size: 14px;
+    width: 80%;
+    margin: 0;
+  }
+  .slogan {
+    margin-top: 0!important;
+  }
 }

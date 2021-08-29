@@ -1,10 +1,8 @@
 getData({
   "title": "反光材料",
   "swiperImgList": [
-    "http://www.cnlianxing.com/manage/static/image/componentimgs/banner4.png",
     "http://www.cnlianxing.com/manage/static/image/16142405090001.png",
     "http://www.cnlianxing.com/manage/static/image/16142404910001.png",
-    "http://www.cnlianxing.com/manage/static/image/componentimgs/banner4.png",
   ],
   "company": {
     "name": "xxx反光材料有限公司",
@@ -63,5 +61,32 @@ getData({
     "title": "卓越的品质",
     "subTitle": "—— “联兴产品，安全的标志”",
     "desc": "公司严格遵循ISO9001:2000质量保证体系和5S的规范生产管理模式"
-  }
+  },
+  "product": {
+    "title": "产品系列",
+    "subTitle": "PRODUCT TYPE",
+    "list": [
+      {
+        "img": "http://www.cnlianxing.com/manage/static/image/16148508570001.png",
+        "title": "产品标题",
+        "desc": "产品描述"
+      },
+      {
+        "img": "http://www.cnlianxing.com/manage/static/image/16148508570001.png",
+        "title": "产品标题",
+        "desc": "产品描述"
+      },
+      {
+        "img": "http://www.cnlianxing.com/manage/static/image/16148508570001.png",
+        "title": "产品标题",
+        "desc": "产品描述"
+      }
+    ]
+  },
+  "contact": {
+    "title": "联系我们",
+    "tel": "电话：xxxxxxx",
+    "email": "邮箱：xxxxxxxx"
+  },
+  "copyright": "CopyRight©2021 - 2021 xxxx公司， Inc.All rights reserved."
 })

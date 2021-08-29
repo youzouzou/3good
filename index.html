@@ -126,92 +126,92 @@
         <div class="manage-item-desc">广泛用于广告灯箱展示牌，广告标志牌，反光安全衣，服装鞋帽装饰</div>
       </div>
     </div> -->
-  </div>
-
-  <div class="slogan">
-    <div class="slogan-title" id="sloganTitle"></div>
-    <div id="sloganSubTitle"></div>
-    <div id="sloganDesc"></div>
-  </div>
-
-  <!-- 产品列表 -->
-  <div class="product">
-    <div class="product-header">
-      <div class="product-header-title">产品系列</div>
-      <div class="product-header-sub-title">PRODUCT TYPE</div>
     </div>
-    <div class="product-list">
-      <div class="product-item">
+
+    <div class="slogan">
+      <div class="slogan-title" id="sloganTitle"></div>
+      <div id="sloganSubTitle"></div>
+      <div id="sloganDesc"></div>
+    </div>
+
+    <!-- 产品列表 -->
+    <div class="product">
+      <div class="product-header">
+        <div class="product-header-title" id="productTitle"></div>
+        <div class="product-header-sub-title" id="productSubTitle"></div>
+      </div>
+      <div class="product-list" id="productList">
+        <!-- <div class="product-item">
         <img src="http://www.cnlianxing.com/manage/static/image/16148508570001.png">
         <div class="product-item-name">标题</div>
         <div class="product-item-desc">
           <span>PRODUCT</span>
           <i></i>
         </div>
+      </div> -->
       </div>
     </div>
-  </div>
 
-  <!-- 联系我们 -->
-  <div class="contact">
-    <div>联系我们</div>
-    <div>电话：xxxxxxx</div>
-    <div>邮箱：xxxxxxxx</div>
-    <br>
-    <hr>
-    CopyRight©2021 - 2021 xxxx公司， Inc.All rights reserved.
-    <div></div>
-  </div>
+    <!-- 联系我们 -->
+    <div class="contact">
+      <div id="contactTitle"></div>
+      <div id="contactTel"></div>
+      <div id="contactEmail"></div>
+      <br>
+      <hr>
+      <div id="copyright"></div>
+      <div></div>
+    </div>
 
-  <script type="text/javascript">
-    // 初始化数据
-    function getData(result) {
-      console.log(result);
-      document.title = result.title;
-      const swiperImgList = result.swiperImgList;
-      const swiperContainer = document.getElementById("swiperList");
-      swiperImgList.map(item => {
-        const img = document.createElement("img");
-        img.className = "swiper-slide swiper-img"
-        img.src = item;
-        swiperContainer.appendChild(img);
-      })
+    <script type="text/javascript">
+      // 初始化数据
+      function getData(result) {
+        console.log(result);
+        document.title = result.title;
+        const swiperImgList = result.swiperImgList;
+        const swiperContainer = document.getElementById("swiperList");
+        swiperImgList.map(item => {
+          const img = document.createElement("img");
+          img.className = "swiper-slide swiper-img"
+          img.src = item;
+          swiperContainer.appendChild(img);
+        })
 
-      {
-        const {
-          name,
-          desc,
-          year,
-          area,
-          honor,
-          tech,
-          slogan
-        } = result.company;
-        // 公司名称
-        document.getElementById("companyName").innerText = name;
-        // 公司简介
-        document.getElementById("companyDesc").innerText = desc;
-        // 成立时间
-        document.getElementById("companyYear").innerText = year;
-        // 占地面积
-        document.getElementById("companyArea").innerText = area;
-        // 荣誉数量
-        document.getElementById("companyHonor").innerText = honor;
-        // 专利数量
-        document.getElementById("companyTech").innerText = tech;
-        // 标语
-        document.getElementById("companySlogan").innerText = slogan;
-      }
+        {
+          const {
+            name,
+            desc,
+            year,
+            area,
+            honor,
+            tech,
+            slogan
+          } = result.company;
+          // 公司名称
+          document.getElementById("companyName").innerText = name;
+          // 公司简介
+          document.getElementById("companyDesc").innerText = desc;
+          // 成立时间
+          document.getElementById("companyYear").innerText = year;
+          // 占地面积
+          document.getElementById("companyArea").innerText = area;
+          // 荣誉数量
+          document.getElementById("companyHonor").innerText = honor;
+          // 专利数量
+          document.getElementById("companyTech").innerText = tech;
+          // 标语
+          document.getElementById("companySlogan").innerText = slogan;
+        }
 
-      /** 公司发展进程 */
-      {
-        const { title, subTitle, list } = result.process;
-        document.getElementById("processTitle").innerText = title;
-        document.getElementById("processSubTitle").innerText = subTitle;
-        const listStr = list.map((item, index) => `
+        /** 公司发展进程 */
+        {
+          const { title, subTitle, list } = result.process;
+          document.getElementById("processTitle").innerText = title;
+          document.getElementById("processSubTitle").innerText = subTitle;
+          const listStr = list.map((item, index) => `
       <div class="time-item">
         `+
-          (index % 2 === 0 ? `<div><img src="./assets/h` + (index + 1) + `.png"></div>
+            (index % 2 === 0 ? `<div><img src="./assets/h` + (index + 1) + `.png"></div>
         <div>
           <div>`+ item.year + `<span>年</span></div>
           <div>`+ item.desc + `</div>
@@ -220,76 +220,101 @@
           <div>`+ item.desc + `</div>
         </div>
         <div><img src="./assets/h`+ (index + 1) + `.png"></div>`)
-          + `
+            + `
       </div>
       `).join("")
-        document.getElementById("processList").innerHTML = listStr;
-      }
-
-      /** 公司经营范围 */
-      {
-        const { title, subTitle, list } = result.range;
-        document.getElementById("rangeTitle").innerText = title;
-        document.getElementById("rangeSubTitle").innerText = subTitle;
-        const ranggeListStr = list.map((item, index)=> `<div class="manage-item">
-        <img src="./assets/icon-`+(index+1)+`.png">
-        <div class="manage-item-title">`+item.title+`</div>
-        <div class="manage-item-desc">`+item.desc+`</div>
-      </div>`);
-        document.getElementById("rangeList").innerHTML = ranggeListStr;
-      }
-
-      {
-        const { title, subTitle, desc } = result.slogan;
-        document.getElementById("sloganTitle").innerText = title;
-        document.getElementById("sloganSubTitle").innerText = subTitle;
-        document.getElementById("sloganDesc").innerText = desc;
-      }
-
-
-    }
-  </script>
-  <script type="text/javascript" src="./data/index.json?callback=getData"></script>
-
-  <script type="text/javascript">
-    const scrollHeight = document.body.scrollHeight;
-    const header = document.getElementById("header");
-    window.addEventListener("scroll", function (event) {
-      var scrollTop =
-        document.documentElement.scrollTop ||
-        window.pageYOffset ||
-        document.body.scrollTop;
-      if (scrollTop > 30) {
-        if (header) {
-          header.style.background = "#fff";
+          document.getElementById("processList").innerHTML = listStr;
         }
-      } else {
-        header.style.background = "transparent";
+
+        /** 公司经营范围 */
+        {
+          const { title, subTitle, list } = result.range;
+          document.getElementById("rangeTitle").innerText = title;
+          document.getElementById("rangeSubTitle").innerText = subTitle;
+          const rangeListStr = list.map((item, index) => `<div class="manage-item">
+        <img src="./assets/icon-`+ (index + 1) + `.png">
+        <div class="manage-item-title">`+ item.title + `</div>
+        <div class="manage-item-desc">`+ item.desc + `</div>
+      </div>`).join("");
+          document.getElementById("rangeList").innerHTML = rangeListStr;
+        }
+
+        /** 标语 */
+        {
+          const { title, subTitle, desc } = result.slogan;
+          document.getElementById("sloganTitle").innerText = title;
+          document.getElementById("sloganSubTitle").innerText = subTitle;
+          document.getElementById("sloganDesc").innerText = desc;
+        }
+
+        /** 产品列表 */
+        {
+          const { title, subTitle, list } = result.product;
+          document.getElementById("productTitle").innerText = title;
+          document.getElementById("productSubTitle").innerText = subTitle;
+          const productListStr = list.map(item => (`<div class="product-item">
+        <img src="`+ item.img + `">
+        <div class="product-item-name">`+ item.title + `</div>
+        <div class="product-item-desc">
+          <span>`+ item.desc + `</span>
+        </div>
+      </div>`)).join("");
+          document.getElementById("productList").innerHTML = productListStr;
+        }
+
+        /** 联系方式 */
+        {
+          const { title, tel, email } = result.contact;
+          document.getElementById("contactTitle").innerText = title;
+          document.getElementById("contactTel").innerText = tel;
+          document.getElementById("contactEmail").innerText = email;
+        }
+
+        document.getElementById("copyright").innerText = result.copyright;
+
       }
-    });
-  </script>
-  <script type="text/javascript" src="./swiper-bundle.min.js"></script>
-  <!-- 轮播图控制脚本 -->
-  <script>
-    var mySwiper = new Swiper(".swiper-container", {
-      // direction: "vertical", // 垂直切换选项
-      // loop: true, // 循环模式选项
-      autoplay: true,
-      // 如果需要分页器
-      pagination: {
-        el: ".swiper-pagination",
-      },
-      // 如果需要前进后退按钮
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      // 如果需要滚动条
-      scrollbar: {
-        el: ".swiper-scrollbar",
-      }
-    });
-  </script>
+    </script>
+    <script type="text/javascript" src="./data/index.json?callback=getData"></script>
+
+    <script type="text/javascript">
+      const scrollHeight = document.body.scrollHeight;
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", function (event) {
+        var scrollTop =
+          document.documentElement.scrollTop ||
+          window.pageYOffset ||
+          document.body.scrollTop;
+        if (scrollTop > 30) {
+          if (header) {
+            header.style.background = "#fff";
+          }
+        } else {
+          header.style.background = "transparent";
+        }
+      });
+    </script>
+    <script type="text/javascript" src="./swiper-bundle.min.js"></script>
+    <!-- 轮播图控制脚本 -->
+    <script>
+      var mySwiper = new Swiper(".swiper-container", {
+        // direction: "vertical", // 垂直切换选项
+        // loop: true, // 循环模式选项
+        autoplay: true,
+        // 如果需要分页器
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        // 如果需要前进后退按钮
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        // 如果需要滚动条
+        scrollbar: {
+          el: ".swiper-scrollbar",
+        }
+      });
+    </script>
 </body>
 
 </html>

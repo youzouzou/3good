@@ -227,7 +227,7 @@ li {
   .product-list{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     .product-item{
       width: 208px;
       height: 208px;
@@ -262,4 +262,51 @@ li {
   text-align: center;
   line-height: 30px;
   font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+  .company-flex {
+    display: block;
+  }
+  .company-left,
+  .company-right {
+  width: 100%;
+  }
+  .timeline .time-item > div{
+    padding: 20px;
+  }
+  .manage-list{
+    display: block!important;
+    overflow: hidden;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+    margin-top: 0!important;
+    height: auto!important;
+    .manage-item{
+      height: auto!important;
+      width: 100%!important;
+      text-align: center;
+      margin-left: 0;
+      img{
+        display: none;
+      }
+      &:nth-child(1),&:nth-child(2),&:nth-child(3){
+        background: none!important;
+        color: #333;
+      }
+      &-title{
+        font-size: 22px;
+        margin-top: 0!important;
+      }
+      &-desc{
+        font-size: 14px;
+        width: 80%;
+        margin: 0;
+      }
+    }
+  }
+  .slogan{
+    margin-top: 0!important;
+  }
 }
