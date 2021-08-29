@@ -1,8 +1,8 @@
 getData({
   "title": "反光材料",
   "swiperImgList": [
-    "./assets/16142405090001.png",
-    "./assets/16142404910001.png",
+    "https://github.com/youzouzou/3good/blob/main/assets/16142405090001.png",
+    "https://github.com/youzouzou/3good/blob/main/assets/16142404910001.png",
   ],
   "company": {
     "name": "xxx反光材料有限公司",
