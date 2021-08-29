@@ -1,8 +1,8 @@
 getData({
   "title": "反光材料",
   "swiperImgList": [
-    "http://www.cnlianxing.com/manage/static/image/16142405090001.png",
-    "http://www.cnlianxing.com/manage/static/image/16142404910001.png",
+    "./assets/16142405090001.png",
+    "./assets/16142404910001.png",
   ],
   "company": {
     "name": "xxx反光材料有限公司",
@@ -67,17 +67,17 @@ getData({
     "subTitle": "PRODUCT TYPE",
     "list": [
       {
-        "img": "http://www.cnlianxing.com/manage/static/image/16148508570001.png",
+        "img": "./assets/16148508570001.png",
         "title": "产品标题",
         "desc": "产品描述"
       },
       {
-        "img": "http://www.cnlianxing.com/manage/static/image/16148508570001.png",
+        "img": "./assets/16148508570001.png",
         "title": "产品标题",
         "desc": "产品描述"
       },
       {
-        "img": "http://www.cnlianxing.com/manage/static/image/16148508570001.png",
+        "img": "./assets/16148508570001.png",
         "title": "产品标题",
         "desc": "产品描述"
       }
