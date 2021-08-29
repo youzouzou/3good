@@ -21,6 +21,22 @@ li {
   left: 0;
   z-index: 9999;
 }
+.header .menu-list {
+  display: flex;
+  justify-content: space-evenly;
+  line-height: 5.6em;
+}
+.header .menu-list * {
+  font-size: 2em;
+  color: inherit;
+}
+.header .menu-list a {
+  text-decoration: none;
+}
+.header .menu-list .active {
+  border-bottom: 3px solid #F6A700;
+  color: #F6A700;
+}
 .swiper-container {
   min-height: 250px;
 }

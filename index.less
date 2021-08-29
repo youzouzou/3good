@@ -23,6 +23,23 @@ li {
   top: 0;
   left: 0;
   z-index: 9999;
+
+  .menu-list{
+    display: flex;
+    justify-content: space-evenly;
+    line-height: 5.6em;
+    *{
+      font-size: 2em;
+      color: inherit;
+    }
+    a{
+      text-decoration: none;
+    }
+    .active{
+      border-bottom: 3px solid #F6A700;
+      color: #F6A700;
+    }
+  }
 }
 
 .swiper-container {

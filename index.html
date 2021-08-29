@@ -11,7 +11,12 @@
 </head>
 
 <body>
-  <div id="header" class="header"></div>
+  <div id="header" class="header">
+    <div class="menu-list">
+      <a class="active">首页</a>
+      <a href="./product.html">产品中心</a>
+    </div>
+  </div>
 
   <!-- 轮播图 -->
   <div class="swiper-container">
@@ -279,6 +284,10 @@
     <script type="text/javascript">
       const scrollHeight = document.body.scrollHeight;
       const header = document.getElementById("header");
+      if (header) {
+        header.style.background = "transparent";
+        header.style.color = "#ccc";
+      }
       window.addEventListener("scroll", function (event) {
         var scrollTop =
           document.documentElement.scrollTop ||
@@ -287,9 +296,13 @@
         if (scrollTop > 30) {
           if (header) {
             header.style.background = "#fff";
+            header.style.color = "#333";
           }
         } else {
-          header.style.background = "transparent";
+          if (header) {
+            header.style.background = "transparent";
+            header.style.color = "#ccc";
+          }
         }
       });
     </script>
