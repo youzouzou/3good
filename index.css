@@ -3,10 +3,7 @@ body {
   /*10 ÷ 16 × 100% = 62.5%*/
   margin: 0;
   padding: 0;
-}
-h1 {
-  font-size: 2.4em;
-  /*2.4em × 10 = 24px */
+  overflow-x: hidden;
 }
 p {
   font-size: 1.4em;
@@ -116,4 +113,118 @@ li {
 .timeline .time-item > div > div:nth-child(2) {
   color: #838383;
   font-size: 12px;
+}
+.manage .manage-range {
+  font-size: 22px;
+  text-align: center;
+}
+.manage .manage-range-title {
+  font-size: 1.5em;
+}
+.manage .manage-range-sub-title {
+  font-size: 14px;
+}
+.manage .manage-list {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  height: 400px;
+  overflow: hidden;
+}
+.manage .manage-list .manage-item {
+  height: 400px;
+  width: 30%;
+  text-align: center;
+  margin-left: 15px;
+  padding: 30px 0;
+}
+.manage .manage-list .manage-item:nth-child(1) {
+  background: url("assets/item1.png") no-repeat;
+  background-size: cover;
+  margin-left: 0;
+}
+.manage .manage-list .manage-item:nth-child(2) {
+  background: url("assets/item2.png") no-repeat;
+  background-size: cover;
+}
+.manage .manage-list .manage-item:nth-child(3) {
+  background: url("assets/item3.png") no-repeat;
+  background-size: cover;
+}
+.manage .manage-list .manage-item img {
+  margin-top: 20px;
+}
+.manage .manage-list .manage-item-title {
+  font-size: 22px;
+  margin-top: 30%;
+}
+.manage .manage-list .manage-item-desc {
+  font-size: 14px;
+  width: 80%;
+  margin: 15px 10%;
+}
+.slogan {
+  width: 100%;
+  height: 260px;
+  margin-top: -50px;
+  padding-top: 50px;
+  background: url(assets/picture-1.png);
+  background-size: cover;
+}
+.slogan > div {
+  margin: 15px 35px;
+  font-size: 16px;
+}
+.slogan .slogan-title {
+  margin-top: 30px;
+  font-size: 22px;
+}
+.product {
+  padding: 30px;
+}
+.product-header {
+  font-size: 22px;
+  text-align: center;
+}
+.product-header-title {
+  font-size: 1.5em;
+}
+.product-header-sub-title {
+  font-size: 14px;
+}
+.product .product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.product .product-list .product-item {
+  width: 208px;
+  height: 208px;
+  font-size: 12px;
+  overflow: hidden;
+  clear: both;
+  margin: 15px;
+}
+.product .product-list .product-item-name {
+  font-size: 14px;
+}
+.product .product-list .product-item-desc i {
+  width: 30px;
+  height: 18px;
+  display: inline-block;
+  background-image: url(assets/link.png);
+  background-repeat: no-repeat;
+}
+.product .product-list .product-item img {
+  width: 100%;
+  height: 140px;
+}
+.contact {
+  background: #222;
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
 }
