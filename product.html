@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>产品中心</title>
     <link rel="stylesheet" href="./product.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="header" class="header">
-        <div class="menu-list">
-          <a href="./index.html">首页</a>
-          <a class="active">产品中心</a>
-        </div>
+      <div class="menu-list">
+        <a href="./index.html">首页</a>
+        <a class="active">产品中心</a>
       </div>
+    </div>
     <div class="product">
-        <div class="product-list" id="productList">
-            <!-- <div class="product-item">
+      <select
+        name="selectType"
+        id="selectType"
+        value="请选择类别"
+        onchange="changeType(this.value)"
+      >
+        <option value="">请选择类别</option>
+        <option value="T4000">T4000 超强级反光膜（PMMA）</option>
+        <option value="T300">T300 超强级反光膜（PC）</option>
+        <option value="T100">T100 超工程级反光膜（PC）</option>
+        <option value="T200HIP">T200 经济型HIP反光膜（PET）</option>
+        <option value="T200EGP">T200 经济型EGP反光膜（PET）</option>
+        <option value="反光车贴">反光车贴</option>
+        <option value="条带">条带</option>
+        <option value="欧标车贴">欧标车贴</option>
+        <option value="PET">PET</option>
+        <option value="PVC">PVC</option>
+        <option value="PMMA">PMMA</option>
+        <option value="TPU">TPU仙度瑞拉</option>
+        <option value="PVC">PVC仙度瑞拉</option>
+      </select>
+      <div class="product-list" id="productList">
+        <!-- <div class="product-item">
           <img src="http://www.cnlianxing.com/manage/static/image/16148508570001.png">
           <div class="product-item-name">标题</div>
           <div class="product-item-desc">
@@ -26,27 +46,65 @@
             <i></i>
           </div>
         </div> -->
-        </div>
+      </div>
     </div>
     <script type="text/javascript">
-        // 初始化数据
-        function getData(result) {
-            if (result) {
-                /** 产品列表 */
-                {
-                    const productListStr = result.list.map(item => (`<div class="product-item">
-                <img src="`+ item.img + `">
-                <div class="product-item-name">`+ item.title + `</div>
-                <div class="product-item-desc">
-                    <span>`+ item.desc + `</span>
-                </div>
-                </div>`)).join("");
-                    document.getElementById("productList").innerHTML = productListStr;
+      let data = {};
+      // 初始化数据
+      function getData(result) {
+        if (result) {
+          data = result;
+          changeType(); // 初始化
+        }
+        // if (result) {
+        //     /** 产品列表 */
+        //     {
+        //         const productListStr = result.list.map(item => (`<div class="product-item">
+        //     <img src="`+ item.img + `">
+        //     <div class="product-item-name">`+ item.title + `</div>
+        //     <div class="product-item-desc">
+        //         <span>`+ item.desc + `</span>
+        //     </div>
+        //     </div>`)).join("");
+        //         document.getElementById("productList").innerHTML = productListStr;
+        //     }
+        // }
+      }
+
+      function changeType(val) {
+        let result = [];
+        if (val && data && data[val]) {
+          result = data[val] || {};
+        }else{
+            for(let key in data){
+                if(data[key] instanceof Array){
+                    result = result.concat(data[key]);
                 }
             }
         }
+        const productListStr = result.map(
+              (item) =>
+                `<div class="product-item">
+            <img src="` +
+                item.img +
+                `">
+            <div class="product-item-name">` +
+                item.title +
+                `</div>
+            <div class="product-item-desc">
+                <span>` +
+                item.desc +
+                `</span>
+            </div>
+            </div>`
+            )
+            .join("");
+          document.getElementById("productList").innerHTML = productListStr;
+      }
     </script>
-    <script type="text/javascript" src="./data/product.json?callback=getData"></script>
-</body>
-
+    <script
+      type="text/javascript"
+      src="./data/product.json?callback=getData"
+    ></script>
+  </body>
 </html>
