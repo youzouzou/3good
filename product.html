@@ -14,13 +14,12 @@
         <a href="./index.html">首页</a>
         <a class="active">产品中心</a>
       </div>
-    </div>
-    <div class="product">
       <select
         name="selectType"
         id="selectType"
         value="请选择类别"
         onchange="changeType(this.value)"
+        class="select"
       >
         <option value="">请选择类别</option>
         <option value="T4000">T4000 超强级反光膜（PMMA）</option>
@@ -37,6 +36,8 @@
         <option value="TPU">TPU仙度瑞拉</option>
         <option value="PVC">PVC仙度瑞拉</option>
       </select>
+    </div>
+    <div class="product">
       <div class="product-list" id="productList">
         <!-- <div class="product-item">
           <img src="http://www.cnlianxing.com/manage/static/image/16148508570001.png">
@@ -48,6 +49,7 @@
         </div> -->
       </div>
     </div>
+    <div class="top-btn" onclick="goToTop()">⬆️</div>
     <script type="text/javascript">
       let data = {};
       // 初始化数据
@@ -75,36 +77,64 @@
         let result = [];
         if (val && data && data[val]) {
           result = data[val] || {};
-        }else{
-            for(let key in data){
-                if(data[key] instanceof Array){
-                    result = result.concat(data[key]);
-                }
+        } else {
+          for (let key in data) {
+            if (data[key] instanceof Array) {
+              result = result.concat(data[key]);
             }
+          }
         }
-        const productListStr = result.map(
-              (item) =>
-                `<div class="product-item">
+        const productListStr = result
+          .map(
+            (item) =>
+              `<div class="product-item">
             <img src="` +
-                item.img +
-                `">
+              item.img +
+              `">
             <div class="product-item-name">` +
-                item.title +
-                `</div>
+              item.title +
+              `</div>
             <div class="product-item-desc">
                 <span>` +
-                item.desc +
-                `</span>
+              item.desc +
+              `</span>
             </div>
             </div>`
-            )
-            .join("");
-          document.getElementById("productList").innerHTML = productListStr;
+          )
+          .join("");
+        document.getElementById("productList").innerHTML = productListStr;
       }
     </script>
     <script
       type="text/javascript"
       src="./data/product.json?callback=getData"
     ></script>
+
+    <script type="text/javascript">
+      const scrollHeight = document.body.scrollHeight;
+      const header = document.getElementById("header");
+      if (header) {
+        header.style.display = "block";
+      }
+      window.addEventListener("scroll", function (event) {
+        var scrollTop =
+          document.documentElement.scrollTop ||
+          window.pageYOffset ||
+          document.body.scrollTop;
+        if (scrollTop > 30) {
+          if (header) {
+            header.style.display = "none";
+          }
+        } else {
+          if (header) {
+            header.style.display = "block";
+          }
+        }
+      });
+
+      function goToTop() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+      }
+    </script>
   </body>
 </html>
